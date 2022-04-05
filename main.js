@@ -1,4 +1,5 @@
 let dogCount = 0;
+let weatherCount = 0;
 
 $('#dogGen').on('click', generateDog);
 
@@ -8,9 +9,9 @@ function generateDog(){
         return httpResponse.json();
     })
     .then(function (data) {
-        $('.carousel-indicators').append(`<button type="button" data-bs-target="#dogCarousel" data-bs-slide-to="${dogCount}" class="dog${dogCount}"></button>
+        $('.dog.carousel-indicators').append(`<button type="button" data-bs-target="#dogCarousel" data-bs-slide-to="${dogCount}" class="dog${dogCount}"></button>
         `);
-        $('.carousel-inner').append(`<div class="carousel-item dog${dogCount}"><img src="${data.message}" width="100%" height="800px"></div`);
+        $('.dog.carousel-inner').append(`<div class="carousel-item dog${dogCount}"><img src="${data.message}" width="100%" height="800px"></div`);
         $(`.dog${dogCount}`).addClass('active');
         for(let i = 0; i < dogCount; i++){
             $(`.dog${i}`).removeClass('active');
@@ -30,17 +31,33 @@ function getWeather(city){
         return httpResponse.json();
     })
     .then(function(data){
+        $('.weather.carousel-indicators').append(`<button type="button" data-bs-target="#weatherCarousel" data-bs-slide-to="${weatherCount}" class="weather${weatherCount}"></button>
+        `);
         if(data.message == 'NOT_FOUND'){
-            $('#cityTitle').text('CITY NOT FOUND');
-            $('#temp').text('');
-            $('#wind').text('');
-            $('#desc').text('');
-            return;
+            $('.weather.carousel-inner').append(`<div class="carousel-item weather${weatherCount}"><h3>${city.toUpperCase()}</h3><p>No data.</p></div>`);
+        } else {
+        $('.weather.carousel-inner').append(`<div class="carousel-item weather${weatherCount}"><h3>${city.toUpperCase()}</h3>
+        <p>Temperature: ${data.temperature}</p>
+        <p>Wind: ${data.wind}</p>
+        <p>Description: ${data.description}</p></div>`);
         };
-        $('#cityTitle').text(city.toUpperCase());
-        $('#temp').text(`Temperature: ${data.temperature}`);
-        $('#wind').text(`Wind: ${data.wind}`);
-        $('#desc').text(`Description: ${data.description}`);
+        $(`.weather${weatherCount}`).addClass('active');
+        for(let i = 0; i < weatherCount; i++){
+            $(`.weather${i}`).removeClass('active');
+        };
+        weatherCount++;
+
+        // if(data.message == 'NOT_FOUND'){
+        //     $('#cityTitle').text('CITY NOT FOUND');
+        //     $('#temp').text('');
+        //     $('#wind').text('');
+        //     $('#desc').text('');
+        //     return;
+        // };
+        // $('#cityTitle').text(city.toUpperCase());
+        // $('#temp').text(`Temperature: ${data.temperature}`);
+        // $('#wind').text(`Wind: ${data.wind}`);
+        // $('#desc').text(`Description: ${data.description}`);
         $('#cityInput').val('');
     });
 };

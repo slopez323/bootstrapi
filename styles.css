@@ -24,3 +24,11 @@ h1 {
     font-style: italic;
     color: #999;
 }
+
+.weather.carousel-inner{
+    text-align: center;
+    padding: 20px 0;
+    height:215px;
+    background-color: darkcyan;
+    color: beige;
+}

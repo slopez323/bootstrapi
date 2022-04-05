@@ -17,53 +17,73 @@
 </head>
 
 <body>
+    <div class="container">
 
-
-
-
-    <div class="api-section">
-        <h1>
-            Part 1: Random Dog Generator
-        </h1>
-        <div class="api-content card">
-            <div class="card-body">
-                <button class="btn btn-success btn-lg" id="dogGen">Generate Random Dog</button>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="dog-tab" data-bs-toggle="tab" data-bs-target="#dogGenerator"
+                    type="button" role="tab" aria-controls="nav-dog" aria-selected="true">Dog Generator</button>
+                <button class="nav-link" id="weather-tab" data-bs-toggle="tab" data-bs-target="#weatherChecker"
+                    type="button" role="tab" aria-controls="nav-weather" aria-selected="false">Check Weather</button>
             </div>
-            <div id="dogCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
+        </nav>
 
-                </div>
-                <div class="carousel-inner">
 
+        <div class="tab-content" id="nav-tabContent">
+            <div class="api-section tab-pane fade show active" id="dogGenerator" role="tabpanel"
+                aria-labelledby="dog-tab">
+                <h1>
+                    Part 1: Random Dog Generator
+                </h1>
+                <div class="api-content card">
+                    <div class="card-body">
+                        <button class="btn btn-success btn-lg" id="dogGen">Generate Random Dog</button>
+                    </div>
+                    <div id="dogCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="dog carousel-indicators">
+                        </div>
+                        <div class="dog carousel-inner">
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
-        </div>
-
-    </div>
-
-    <div class="api-section">
-        <h1>
-            Part 2: Weather App
-        </h1>
-        <div class="api-content card">
-            <div class="card-body">
-                <div class="card-title">
-                    <form id="weather">
-                        <input type="text" id="cityInput" autocomplete="off" placeholder=" Input city here">
-                        <button type="submit" class="btn btn-info">Check Weather</button>
-                    </form>
-                </div>
-                <div class="card-text">
-                    <h3 id="cityTitle"></h3>
-                    <p id="temp"></p>
-                    <p id="wind"></p>
-                    <p id="desc"></p>
+            <div class="api-section tab-pane fade" id="weatherChecker" role="tabpanel" aria-labelledby="weather-tab">
+                <h1>
+                    Part 2: Weather App
+                </h1>
+                <div class="api-content card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <form id="weather">
+                                <input type="text" id="cityInput" autocomplete="off" placeholder=" Input city here">
+                                <button type="submit" class="btn btn-info">Check Weather</button>
+                            </form>
+                        </div>
+                        <div class="card-text">
+                            <div id="weatherCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="weather carousel-indicators">
+                                </div>
+                                <div class="weather carousel-inner">
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#weatherCarousel"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#weatherCarousel"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
