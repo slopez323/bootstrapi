@@ -18,24 +18,54 @@
 
 <body>
 
+
+
+
     <div class="api-section">
         <h1>
             Part 1: Random Dog Generator
         </h1>
         <div class="api-content card">
-            <img id="dogImg">
             <div class="card-body">
                 <button class="btn btn-success btn-lg" id="dogGen">Generate Random Dog</button>
             </div>
+            <div id="dogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+
+                </div>
+                <div class="carousel-inner">
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
         </div>
+
     </div>
 
     <div class="api-section">
         <h1>
             Part 2: Weather App
         </h1>
-        <div class="api-content">
-            [INSERT WEATHER APP HERE]
+        <div class="api-content card">
+            <div class="card-body">
+                <div class="card-title">
+                    <form id="weather">
+                        <input type="text" id="cityInput" autocomplete="off" placeholder=" Input city here">
+                        <button type="submit" class="btn btn-info">Check Weather</button>
+                    </form>
+                </div>
+                <div class="card-text">
+                    <h3 id="cityTitle"></h3>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="desc"></p>
+                </div>
+            </div>
         </div>
     </div>
 
