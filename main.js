@@ -46,18 +46,6 @@ function getWeather(city){
             $(`.weather${i}`).removeClass('active');
         };
         weatherCount++;
-
-        // if(data.message == 'NOT_FOUND'){
-        //     $('#cityTitle').text('CITY NOT FOUND');
-        //     $('#temp').text('');
-        //     $('#wind').text('');
-        //     $('#desc').text('');
-        //     return;
-        // };
-        // $('#cityTitle').text(city.toUpperCase());
-        // $('#temp').text(`Temperature: ${data.temperature}`);
-        // $('#wind').text(`Wind: ${data.wind}`);
-        // $('#desc').text(`Description: ${data.description}`);
         $('#cityInput').val('');
     });
 };
